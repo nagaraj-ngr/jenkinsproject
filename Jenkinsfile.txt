@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage ('Clone') {
             steps {
-                git branch: 'master', url: "https://github.com/nagaraj-ngr/jenkinsproject.git"
+             //   git branch: 'master', url: "https://github.com/nagaraj-ngr/jenkinsproject.git"
+                echo 'Cloning.. Cloning the project'
             }
         }
         stage('Test') {
@@ -12,17 +13,32 @@ pipeline {
                 echo 'Testing.. This is the testing phase'
             }
         }
-        stage('Deploy') {
-          steps{
-                sh '''
-                  mkdir dummyfolder
-                '''
-            }
-        }
-	stage('Postdeploy') {
+        
+	stage('RunCommandCreate') {
 		steps {
 			echo 'Postdeployment phase....'
+			 sh '''
+                  mkdir dummyfolderTest2
+                '''
 		}
 	}
+	stage('PostdeployRemoveFolder') {
+		steps {
+			echo 'Postdeployment phase....'
+			input('Do you want to Remove Folder?')
+			 sh '''
+                  rm -r dummyfolderTest2
+                '''
+	}
+	}
+		stage('TryCreatingFolderAgain') {
+		steps {
+			echo 'Postdeployment phase....'
+			input('Do you want to Remove Folder?')
+			 sh '''
+                   mkdir dummyfolderTest2
+                '''
+		}
+	}
+	}	
     }
-}
