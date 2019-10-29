@@ -13,8 +13,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                echo 'Deploying....  This is the deployment phase'
+          steps{
+                sh '''
+                  mkdir dummyfolder
+                '''
             }
         }
 	stage('Postdeploy') {
