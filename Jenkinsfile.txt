@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage ('Clone') {
             steps {
-                echo 'Building.. This is the build phase'
+                git branch: 'master', url: "https://github.com/nagaraj-ngr/jenkinsproject.git"
             }
         }
         stage('Test') {
