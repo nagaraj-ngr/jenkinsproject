@@ -18,7 +18,7 @@ pipeline {
 		steps {
 			echo 'Postdeployment phase....'
 			 sh '''
-                  mkdir dummyfolderTest2
+                  mkdir dummyfolderTest33
                 '''
 		}
 	}
@@ -27,7 +27,7 @@ pipeline {
 			echo 'Postdeployment phase....'
 			input('Do you want to Remove Folder?')
 			 sh '''
-                  rm -r dummyfolderTest2
+                  rm -r dummyfolderTest33
                 '''
 	}
 	}
@@ -36,7 +36,7 @@ pipeline {
 			echo 'Postdeployment phase....'
 			input('Do you want to Remove Folder?')
 			 sh '''
-                   mkdir dummyfolderTest2
+                   mkdir dummyfolderTest33
                 '''
 		}
 	}
